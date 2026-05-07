@@ -3,15 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5"> <!-- Se actualiza solo cada 5 seg -->
-    <title>Formulario Código Postal</title>
+    <meta http-equiv="refresh" content="5"> <!-- Se actualiza solo -->
+    <title>Código Postal</title>
+
+    <style>
+        body {
+            background-color: #0066cc; /* Fondo Azul */
+            color: white; /* Letras blancas para que se vean bien */
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Ocupar toda la pantalla */
+            display: flex;
+            justify-content: center; /* Centrar horizontal */
+            align-items: center; /* Centrar vertical */
+            margin: 0;
+        }
+        .contenedor {
+            text-align: center; /* Centrar texto */
+            background-color: rgba(0, 0, 0, 0.2); /* Un poquito más oscuro */
+            padding: 30px;
+            border-radius: 10px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: #0066cc;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-    <h2>📍 Ingresar Código Postal</h2>
+    <div class="contenedor">
+        <h2>📍 Ingresar Código Postal</h2>
 
-    <form>
         <label for="cp">Código Postal:</label>
+        <br><br>
         <input type="text" 
                id="cp" 
                name="cp" 
@@ -23,24 +58,23 @@
         <br><br>
 
         <button type="button" onclick="verificarCP()">Verificar</button>
-    </form>
 
-    <hr>
+        <hr>
 
-    <div id="resultado"></div>
+        <div id="resultado"></div>
+    </div>
 
 
     <script>
         function verificarCP() {
             let cp = document.getElementById("cp").value;
 
-            // Validar que sean exactamente 5 números
             if(/^[0-9]{5}$/.test(cp)) {
                 document.getElementById("resultado").innerHTML = 
-                "<p style='color:green;'>✅ Código Postal válido: " + cp + "</p>";
+                "<p style='color:lightgreen; font-size:18px;'>✅ Válido: " + cp + "</p>";
             } else {
                 document.getElementById("resultado").innerHTML = 
-                "<p style='color:red;'>❌ Error: Deben ser exactamente 5 números.</p>";
+                "<p style='color:red; font-size:18px;'>❌ Error: Deben ser 5 números</p>";
             }
         }
     </script>
